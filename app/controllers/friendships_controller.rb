@@ -11,9 +11,8 @@ class FriendshipsController < ApplicationController
 
     flash[:notice] = "Congratulation! You are now friends with #{friend.name}"
     redirect_to users_path
-
-  rescue Exception 
-    flash[:alert] = "Something went wrong!"
+  rescue StandardError
+    flash[:alert] = 'Something went wrong!'
     redirect_to users_path
   end
 end
