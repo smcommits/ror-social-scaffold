@@ -35,6 +35,5 @@ RSpec.describe User, type: :model do
         expect(user1.check_request_existence(user2)).to eql(true)
       end
     end
-
   end
 end

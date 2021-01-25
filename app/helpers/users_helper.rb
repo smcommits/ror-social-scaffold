@@ -23,5 +23,4 @@ module UsersHelper
     [link_to('Accept Friend Request', friendships_path(id: user.id), method: :post),
      link_to('Reject Friend Request', friend_request_path(id: recieved_friend_request.id), method: :delete)]
   end
-
 end
