@@ -86,6 +86,9 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    io-console (0.5.6)
+    irb (1.2.7)
+      reline (>= 0.1.5)
     jaro_winkler (1.5.4)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
@@ -157,6 +160,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.8.2)
+    reline (0.2.0)
+      io-console (~> 0.5)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -261,6 +266,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   devise
+  irb (~> 1.2.7)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
