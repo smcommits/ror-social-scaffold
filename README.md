@@ -9,8 +9,7 @@
 
 ## Live Demo
 
-TBA
-
+[Visit here](https://desolate-plains-96368.herokuapp.com/) to view live demo of the application
 
 ## Getting Started
 
