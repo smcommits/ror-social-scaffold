@@ -5,10 +5,10 @@ module UsersHelper
     return 'You are friends' if current_user.friends.include?(user)
 
     unless current_user.check_request_existence(user)
-      return link_to 'Send Friend Request', friendships_path(id: user.id), method: :post
+      return link_to 'Send Friend Request', friend_requests_path(id: user.id), method: :post
     end
 
-    sent_friend_requests = current_user.sent_friend_requests.where(friend_id: user.id).first
+    sent_friend_requests = current_user.sent_friend_requests.find_by(friend_id: user.id)
     'Request already sent' if sent_friend_requests
   end
 
@@ -17,10 +17,10 @@ module UsersHelper
   end
 
   def display_accept_reject(user: nil)
-    recieved_friend_request = current_user.pending_friend_requests.where(user_id: user.id).first
+    recieved_friend_request = current_user.recieved_friend_requests.find_by(user_id: user.id)
     return unless recieved_friend_request
 
-    [link_to('Accept Friend Request', friendship_path(recieved_friend_request.id), method: :patch),
-     link_to('Reject Friend Request', friendship_path(recieved_friend_request.id), method: :delete)]
+    [link_to('Accept Friend Request', friendships_path(id: user.id), method: :post),
+     link_to('Reject Friend Request', friend_request_path(id: recieved_friend_request.id), method: :delete)]
   end
 end

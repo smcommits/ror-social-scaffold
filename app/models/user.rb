@@ -11,23 +11,26 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :sent_friend_requests, class_name: 'Friendship', foreign_key: :user_id
-  has_many :recieved_friend_requests, class_name: 'Friendship', foreign_key: :friend_id
 
-  def friends
-    accepted_requests = sent_friend_requests.map { |request| request.friend if request.status == 'accepted' }
-    requests_accepted = recieved_friend_requests.map { |request| request.user if request.status == 'accepted' }
+  has_many :friendships
+  has_many :friends, through: :friendships
 
-    accepted_requests + requests_accepted
-  end
+  has_many :sent_friend_requests, class_name: 'FriendRequest', foreign_key: :user_id
+  has_many :recieved_friend_requests, class_name: 'FriendRequest', foreign_key: :friend_id
 
-  def pending_friend_requests
-    recieved_friend_requests.where('status = ?', 0)
-  end
+  has_many :posts_from_friends, through: :friends, source: :posts
 
   def check_request_existence(friend)
     friends.include?(friend) or
       sent_friend_requests.where(friend_id: friend.id).exists? or
       recieved_friend_requests.where(user_id: friend.id).exists?
+  end
+
+  def timeline_posts
+    posts.ordered_by_most_recent
+  end
+
+  def friends_posts
+    posts_from_friends.ordered_by_most_recent
   end
 end

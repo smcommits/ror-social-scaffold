@@ -1,0 +1,27 @@
+require "rails_helper"
+
+describe "the signin process", type: :feature do
+  user = User.create!(:email => 'showsman_new@example.com', :password => 'f4k3p455w0rd', :name => 'test')
+
+  context 'Checking the overall flow of application' do
+  
+    it 'should redirect to new session path if visited root path withtout loggin in' do
+      visit '/'
+      expect(page).to have_current_path(new_user_session_path)
+    end
+
+    it 'should let user access the root path if logged in' do
+      visit '/'
+      login_as(user, :scope => :user)
+      expect(page).to have_current_path(root_path)
+    end
+    
+    it "will render posts page is user was unable to create a post" do
+      visit '/posts/'
+      click_button 'Save'
+      page.should satisfy {|page| page.has_content?("Post could not be saved. Content can't be blank") and page.has_current_path?(posts_path)}
+    end
+
+  end
+
+end

@@ -3,7 +3,7 @@
   <%@pending_requests.each do |request| %>
     <li> 
       <%= request.user.name %>
-      <%= link_to 'Accept Friend Request', friendship_path(request.id), method: :patch %>
+      <%=link_to 'Accept Friend Request', friendships_path(id: request.user_id), method: :post %>
    </li>
    <%end%>
 </ul>
