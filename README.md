@@ -9,8 +9,8 @@
 
 ## Live Demo
 
-TBA
-
+[Visit here](https://desolate-plains-96368.herokuapp.com/) to view live demo of the application
+![screenshot](./scr.png)
 
 ## Getting Started
 
@@ -18,9 +18,9 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
+- Ruby: 2.6.3
+- Rails: 5.2.3
+- Postgres: >=9.5
 
 ### Setup
 
@@ -65,15 +65,13 @@ Open `http://localhost:3000/` in your browser.
 
 > Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
 
-### Deployment
-
-TBA
-
 ## Authors
 
-TBA
-
-## 🤝 Contributing
+ **Anas Siddiqui**
+  - GitHub: [@githubhandle](https://github.com/smcommits)
+  - LinkedIn: [linkedIn](https://linkedin.com/in/sm-anas)
+  
+## Contributing
 
 Contributions, issues and feature requests are welcome!
 
@@ -85,9 +83,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
 
-## 📝 License
+Credits go to The Odin Project for providing essential guidance and an opportunity to build this amazing project
+  - [**The Odin Project**](https://www.theodinproject.com/home)
 
-TBA
-
+Credits go to the Rails Guides for providing guides on Ruby on Rails
+  - [**Rails Guides**](https://guides.rubyonrails.org/form_helpers.html )

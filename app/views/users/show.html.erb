@@ -1,9 +1,17 @@
 <section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
-  <article class="timeline">
+  <div>
+    <h2><%= "Name: #{@user.name}" %></h2>
+    <%= display_invitation(user: @user) %>
+    <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
       <%= render @posts %>
     </ul>
-  </article>
+    </article>
+
+    <section>
+      <%= display_pending_requests(@user) %>
+    </section>
+
+        
 </section>
