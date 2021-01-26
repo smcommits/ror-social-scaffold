@@ -38,7 +38,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
-
+gem 'factory_bot_rails'
 gem 'irb', '~> 1.2.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
